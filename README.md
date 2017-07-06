@@ -35,7 +35,7 @@ To work, your application must contains the file `clevercloud/ruby.json` which c
     "deploy": {
         "rakegoals": [
             "db:schema:load",
-            "assets: precompile"
+            "assets:precompile"
         ]
     }
 }
