@@ -47,7 +47,7 @@ This REST API provides a design to definie new content on website, there is an *
 These are the routes available.
 
 ```
-             Prefix Verb   URI Pattern                                       Controller#Action
+              Prefix Verb   URI Pattern                                       Controller#Action
        welcome_index GET    /welcome/index(.:format)                          welcome#index
     article_comments GET    /articles/:article_id/comments(.:format)          comments#index
                      POST   /articles/:article_id/comments(.:format)          comments#create
