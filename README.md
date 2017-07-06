@@ -1,6 +1,10 @@
-# Demo RubyOnRails
+# RubyOnRails as RESTful Demo for Clever-Cloud
+
+## Description
 
 This application is a fork from [official getting started](http://guides.rubyonrails.org/getting_started.html) which contains the configuration for Clever Cloud ruby application.
+
+This application is a RESTful app which is using PostgreSQL addon.
 
 ## Configuration
 
