@@ -34,14 +34,14 @@ To work, your application must contains the file `clevercloud/ruby.json` which c
 {
     "deploy": {
         "rakegoals": [
-            "db:setup",
+            "db:schema:load",
             "assets: precompile"
         ]
     }
 }
 ```
 
-Create your data schema and relations and enable rails assets pipeline.
+Create your data schema, relations and enable rails assets pipeline.
 
 ## Application
 
