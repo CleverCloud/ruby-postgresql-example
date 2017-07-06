@@ -15,3 +15,16 @@ On your Clever Cloud application you must specify some environment variables as 
 
 - `SECRET_KEY_BASE` with a value that can be generate using `rake secret`.
 
+### Clever Cloud
+
+To work, your application must contains the file `clevercloud/ruby.json` which contains:
+
+```json
+{
+    "deploy": {
+        "rakegoals": ["assets:precompile"]
+    }
+}
+```
+
+To enable rails assets pipeline.
