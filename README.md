@@ -24,7 +24,7 @@ On your Clever Cloud application you must specify some environment variables as 
 Depending on your machine, you'll need to run this commands to generate a `SECRET_KEY_BASE`:
 
 - `bundle update`
--`bundle install`
+- `bundle install`
 - `bundle exec rake secret`
 
 #### Database connection
