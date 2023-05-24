@@ -1,0 +1,571 @@
+"pkg-config --exists libffi"
+| pkg-config --libs libffi
+=> "-lffi\n"
+"clang -fdeclspec -o conftest -I/Users/mikiminach/.rbenv/versions/3.0.0/include/ruby-3.0.0/arm64-darwin22 -I/Users/mikiminach/.rbenv/versions/3.0.0/include/ruby-3.0.0/ruby/backward -I/Users/mikiminach/.rbenv/versions/3.0.0/include/ruby-3.0.0 -I. -I/Users/mikiminach/.rbenv/versions/3.0.0/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wmissing-noreturn -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens -fno-common -pipe conftest.c  -L. -L/Users/mikiminach/.rbenv/versions/3.0.0/lib -L. -L/Users/mikiminach/.rbenv/versions/3.0.0/lib  -fstack-protector-strong -L/opt/homebrew/Cellar/llvm@12/12.0.1_1/lib/clang/12.0.1/lib  -m64   -lruby.3.0   "
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main(int argc, char **argv)
+4: {
+5:   return !!argv[argc];
+6: }
+/* end */
+
+"clang -fdeclspec -o conftest -I/Users/mikiminach/.rbenv/versions/3.0.0/include/ruby-3.0.0/arm64-darwin22 -I/Users/mikiminach/.rbenv/versions/3.0.0/include/ruby-3.0.0/ruby/backward -I/Users/mikiminach/.rbenv/versions/3.0.0/include/ruby-3.0.0 -I. -I/Users/mikiminach/.rbenv/versions/3.0.0/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wmissing-noreturn -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens -fno-common -pipe conftest.c  -L. -L/Users/mikiminach/.rbenv/versions/3.0.0/lib -L. -L/Users/mikiminach/.rbenv/versions/3.0.0/lib  -fstack-protector-strong -L/opt/homebrew/Cellar/llvm@12/12.0.1_1/lib/clang/12.0.1/lib  -m64   -lruby.3.0 -lffi  "
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main(int argc, char **argv)
+4: {
+5:   return !!argv[argc];
+6: }
+/* end */
+
+| pkg-config --cflags-only-I libffi
+=> "-I/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/ffi\n"
+| pkg-config --cflags-only-other libffi
+=> "\n"
+| pkg-config --libs-only-l libffi
+=> "-lffi\n"
+package configuration for libffi
+incflags: -I/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/ffi
+cflags: 
+ldflags: 
+libs: -lffi
+
+have_library: checking for ffi_prep_closure_loc() in -lffi... -------------------- yes
+
+"clang -fdeclspec -o conftest -I/Users/mikiminach/.rbenv/versions/3.0.0/include/ruby-3.0.0/arm64-darwin22 -I/Users/mikiminach/.rbenv/versions/3.0.0/include/ruby-3.0.0/ruby/backward -I/Users/mikiminach/.rbenv/versions/3.0.0/include/ruby-3.0.0 -I. -I/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/ffi -I/Users/mikiminach/.rbenv/versions/3.0.0/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wmissing-noreturn -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens -fno-common -pipe  conftest.c  -L. -L/Users/mikiminach/.rbenv/versions/3.0.0/lib -L. -L/Users/mikiminach/.rbenv/versions/3.0.0/lib  -fstack-protector-strong -L/opt/homebrew/Cellar/llvm@12/12.0.1_1/lib/clang/12.0.1/lib   -m64   -lffi -lruby.3.0 -lffi  -lffi  "
+In file included from conftest.c:3:
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/ffi/ffi.h:215:1: warning: unknown platform 'macCatalyst' in availability macro [-Wavailability]
+FFI_AVAILABLE_APPLE FFI_EXTERN ffi_type ffi_type_void;
+^
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/ffi/ffi.h:56:34: note: expanded from macro 'FFI_AVAILABLE_APPLE'
+#define FFI_AVAILABLE_APPLE      API_AVAILABLE(macos(10.0), macCatalyst(13.0)) API_UNAVAILABLE(ios, tvos, watchos)
+                                 ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/os/availability.h:61:160: note: expanded from macro 'API_AVAILABLE'
+    #define API_AVAILABLE(...) __API_AVAILABLE_GET_MACRO(__VA_ARGS__,__API_AVAILABLE7, __API_AVAILABLE6, __API_AVAILABLE5, __API_AVAILABLE4, __API_AVAILABLE3, __API_AVAILABLE2, __API_AVAILABLE1, 0)(__VA_ARGS__)
+                                                                                                                                                               ^
+In file included from conftest.c:3:
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/ffi/ffi.h:216:1: warning: unknown platform 'macCatalyst' in availability macro [-Wavailability]
+FFI_AVAILABLE_APPLE FFI_EXTERN ffi_type ffi_type_uint8;
+^
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/ffi/ffi.h:56:34: note: expanded from macro 'FFI_AVAILABLE_APPLE'
+#define FFI_AVAILABLE_APPLE      API_AVAILABLE(macos(10.0), macCatalyst(13.0)) API_UNAVAILABLE(ios, tvos, watchos)
+                                 ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/os/availability.h:61:160: note: expanded from macro 'API_AVAILABLE'
+    #define API_AVAILABLE(...) __API_AVAILABLE_GET_MACRO(__VA_ARGS__,__API_AVAILABLE7, __API_AVAILABLE6, __API_AVAILABLE5, __API_AVAILABLE4, __API_AVAILABLE3, __API_AVAILABLE2, __API_AVAILABLE1, 0)(__VA_ARGS__)
+                                                                                                                                                               ^
+In file included from conftest.c:3:
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/ffi/ffi.h:217:1: warning: unknown platform 'macCatalyst' in availability macro [-Wavailability]
+FFI_AVAILABLE_APPLE FFI_EXTERN ffi_type ffi_type_sint8;
+^
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/ffi/ffi.h:56:34: note: expanded from macro 'FFI_AVAILABLE_APPLE'
+#define FFI_AVAILABLE_APPLE      API_AVAILABLE(macos(10.0), macCatalyst(13.0)) API_UNAVAILABLE(ios, tvos, watchos)
+                                 ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/os/availability.h:61:160: note: expanded from macro 'API_AVAILABLE'
+    #define API_AVAILABLE(...) __API_AVAILABLE_GET_MACRO(__VA_ARGS__,__API_AVAILABLE7, __API_AVAILABLE6, __API_AVAILABLE5, __API_AVAILABLE4, __API_AVAILABLE3, __API_AVAILABLE2, __API_AVAILABLE1, 0)(__VA_ARGS__)
+                                                                                                                                                               ^
+In file included from conftest.c:3:
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/ffi/ffi.h:218:1: warning: unknown platform 'macCatalyst' in availability macro [-Wavailability]
+FFI_AVAILABLE_APPLE FFI_EXTERN ffi_type  ffi_type_uint16;
+^
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/ffi/ffi.h:56:34: note: expanded from macro 'FFI_AVAILABLE_APPLE'
+#define FFI_AVAILABLE_APPLE      API_AVAILABLE(macos(10.0), macCatalyst(13.0)) API_UNAVAILABLE(ios, tvos, watchos)
+                                 ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/os/availability.h:61:160: note: expanded from macro 'API_AVAILABLE'
+    #define API_AVAILABLE(...) __API_AVAILABLE_GET_MACRO(__VA_ARGS__,__API_AVAILABLE7, __API_AVAILABLE6, __API_AVAILABLE5, __API_AVAILABLE4, __API_AVAILABLE3, __API_AVAILABLE2, __API_AVAILABLE1, 0)(__VA_ARGS__)
+                                                                                                                                                               ^
+In file included from conftest.c:3:
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/ffi/ffi.h:219:1: warning: unknown platform 'macCatalyst' in availability macro [-Wavailability]
+FFI_AVAILABLE_APPLE FFI_EXTERN ffi_type ffi_type_sint16;
+^
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/ffi/ffi.h:56:34: note: expanded from macro 'FFI_AVAILABLE_APPLE'
+#define FFI_AVAILABLE_APPLE      API_AVAILABLE(macos(10.0), macCatalyst(13.0)) API_UNAVAILABLE(ios, tvos, watchos)
+                                 ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/os/availability.h:61:160: note: expanded from macro 'API_AVAILABLE'
+    #define API_AVAILABLE(...) __API_AVAILABLE_GET_MACRO(__VA_ARGS__,__API_AVAILABLE7, __API_AVAILABLE6, __API_AVAILABLE5, __API_AVAILABLE4, __API_AVAILABLE3, __API_AVAILABLE2, __API_AVAILABLE1, 0)(__VA_ARGS__)
+                                                                                                                                                               ^
+In file included from conftest.c:3:
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/ffi/ffi.h:220:1: warning: unknown platform 'macCatalyst' in availability macro [-Wavailability]
+FFI_AVAILABLE_APPLE FFI_EXTERN ffi_type ffi_type_uint32;
+^
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/ffi/ffi.h:56:34: note: expanded from macro 'FFI_AVAILABLE_APPLE'
+#define FFI_AVAILABLE_APPLE      API_AVAILABLE(macos(10.0), macCatalyst(13.0)) API_UNAVAILABLE(ios, tvos, watchos)
+                                 ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/os/availability.h:61:160: note: expanded from macro 'API_AVAILABLE'
+    #define API_AVAILABLE(...) __API_AVAILABLE_GET_MACRO(__VA_ARGS__,__API_AVAILABLE7, __API_AVAILABLE6, __API_AVAILABLE5, __API_AVAILABLE4, __API_AVAILABLE3, __API_AVAILABLE2, __API_AVAILABLE1, 0)(__VA_ARGS__)
+                                                                                                                                                               ^
+In file included from conftest.c:3:
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/ffi/ffi.h:221:1: warning: unknown platform 'macCatalyst' in availability macro [-Wavailability]
+FFI_AVAILABLE_APPLE FFI_EXTERN ffi_type ffi_type_sint32;
+^
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/ffi/ffi.h:56:34: note: expanded from macro 'FFI_AVAILABLE_APPLE'
+#define FFI_AVAILABLE_APPLE      API_AVAILABLE(macos(10.0), macCatalyst(13.0)) API_UNAVAILABLE(ios, tvos, watchos)
+                                 ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/os/availability.h:61:160: note: expanded from macro 'API_AVAILABLE'
+    #define API_AVAILABLE(...) __API_AVAILABLE_GET_MACRO(__VA_ARGS__,__API_AVAILABLE7, __API_AVAILABLE6, __API_AVAILABLE5, __API_AVAILABLE4, __API_AVAILABLE3, __API_AVAILABLE2, __API_AVAILABLE1, 0)(__VA_ARGS__)
+                                                                                                                                                               ^
+In file included from conftest.c:3:
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/ffi/ffi.h:222:1: warning: unknown platform 'macCatalyst' in availability macro [-Wavailability]
+FFI_AVAILABLE_APPLE FFI_EXTERN ffi_type ffi_type_uint64;
+^
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/ffi/ffi.h:56:34: note: expanded from macro 'FFI_AVAILABLE_APPLE'
+#define FFI_AVAILABLE_APPLE      API_AVAILABLE(macos(10.0), macCatalyst(13.0)) API_UNAVAILABLE(ios, tvos, watchos)
+                                 ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/os/availability.h:61:160: note: expanded from macro 'API_AVAILABLE'
+    #define API_AVAILABLE(...) __API_AVAILABLE_GET_MACRO(__VA_ARGS__,__API_AVAILABLE7, __API_AVAILABLE6, __API_AVAILABLE5, __API_AVAILABLE4, __API_AVAILABLE3, __API_AVAILABLE2, __API_AVAILABLE1, 0)(__VA_ARGS__)
+                                                                                                                                                               ^
+In file included from conftest.c:3:
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/ffi/ffi.h:223:1: warning: unknown platform 'macCatalyst' in availability macro [-Wavailability]
+FFI_AVAILABLE_APPLE FFI_EXTERN ffi_type ffi_type_sint64;
+^
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/ffi/ffi.h:56:34: note: expanded from macro 'FFI_AVAILABLE_APPLE'
+#define FFI_AVAILABLE_APPLE      API_AVAILABLE(macos(10.0), macCatalyst(13.0)) API_UNAVAILABLE(ios, tvos, watchos)
+                                 ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/os/availability.h:61:160: note: expanded from macro 'API_AVAILABLE'
+    #define API_AVAILABLE(...) __API_AVAILABLE_GET_MACRO(__VA_ARGS__,__API_AVAILABLE7, __API_AVAILABLE6, __API_AVAILABLE5, __API_AVAILABLE4, __API_AVAILABLE3, __API_AVAILABLE2, __API_AVAILABLE1, 0)(__VA_ARGS__)
+                                                                                                                                                               ^
+In file included from conftest.c:3:
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/ffi/ffi.h:224:1: warning: unknown platform 'macCatalyst' in availability macro [-Wavailability]
+FFI_AVAILABLE_APPLE FFI_EXTERN ffi_type ffi_type_float;
+^
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/ffi/ffi.h:56:34: note: expanded from macro 'FFI_AVAILABLE_APPLE'
+#define FFI_AVAILABLE_APPLE      API_AVAILABLE(macos(10.0), macCatalyst(13.0)) API_UNAVAILABLE(ios, tvos, watchos)
+                                 ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/os/availability.h:61:160: note: expanded from macro 'API_AVAILABLE'
+    #define API_AVAILABLE(...) __API_AVAILABLE_GET_MACRO(__VA_ARGS__,__API_AVAILABLE7, __API_AVAILABLE6, __API_AVAILABLE5, __API_AVAILABLE4, __API_AVAILABLE3, __API_AVAILABLE2, __API_AVAILABLE1, 0)(__VA_ARGS__)
+                                                                                                                                                               ^
+In file included from conftest.c:3:
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/ffi/ffi.h:225:1: warning: unknown platform 'macCatalyst' in availability macro [-Wavailability]
+FFI_AVAILABLE_APPLE FFI_EXTERN ffi_type ffi_type_double;
+^
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/ffi/ffi.h:56:34: note: expanded from macro 'FFI_AVAILABLE_APPLE'
+#define FFI_AVAILABLE_APPLE      API_AVAILABLE(macos(10.0), macCatalyst(13.0)) API_UNAVAILABLE(ios, tvos, watchos)
+                                 ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/os/availability.h:61:160: note: expanded from macro 'API_AVAILABLE'
+    #define API_AVAILABLE(...) __API_AVAILABLE_GET_MACRO(__VA_ARGS__,__API_AVAILABLE7, __API_AVAILABLE6, __API_AVAILABLE5, __API_AVAILABLE4, __API_AVAILABLE3, __API_AVAILABLE2, __API_AVAILABLE1, 0)(__VA_ARGS__)
+                                                                                                                                                               ^
+In file included from conftest.c:3:
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/ffi/ffi.h:226:1: warning: unknown platform 'macCatalyst' in availability macro [-Wavailability]
+FFI_AVAILABLE_APPLE FFI_EXTERN ffi_type ffi_type_pointer;
+^
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/ffi/ffi.h:56:34: note: expanded from macro 'FFI_AVAILABLE_APPLE'
+#define FFI_AVAILABLE_APPLE      API_AVAILABLE(macos(10.0), macCatalyst(13.0)) API_UNAVAILABLE(ios, tvos, watchos)
+                                 ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/os/availability.h:61:160: note: expanded from macro 'API_AVAILABLE'
+    #define API_AVAILABLE(...) __API_AVAILABLE_GET_MACRO(__VA_ARGS__,__API_AVAILABLE7, __API_AVAILABLE6, __API_AVAILABLE5, __API_AVAILABLE4, __API_AVAILABLE3, __API_AVAILABLE2, __API_AVAILABLE1, 0)(__VA_ARGS__)
+                                                                                                                                                               ^
+In file included from conftest.c:3:
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/ffi/ffi.h:235:1: warning: unknown platform 'macCatalyst' in availability macro [-Wavailability]
+FFI_AVAILABLE_APPLE_2019 FFI_EXTERN ffi_type ffi_type_complex_float;
+^
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/ffi/ffi.h:57:34: note: expanded from macro 'FFI_AVAILABLE_APPLE_2019'
+#define FFI_AVAILABLE_APPLE_2019 API_AVAILABLE(macos(10.15), macCatalyst(13.0)) API_UNAVAILABLE(ios, tvos, watchos)
+                                 ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/os/availability.h:61:160: note: expanded from macro 'API_AVAILABLE'
+    #define API_AVAILABLE(...) __API_AVAILABLE_GET_MACRO(__VA_ARGS__,__API_AVAILABLE7, __API_AVAILABLE6, __API_AVAILABLE5, __API_AVAILABLE4, __API_AVAILABLE3, __API_AVAILABLE2, __API_AVAILABLE1, 0)(__VA_ARGS__)
+                                                                                                                                                               ^
+In file included from conftest.c:3:
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/ffi/ffi.h:236:1: warning: unknown platform 'macCatalyst' in availability macro [-Wavailability]
+FFI_AVAILABLE_APPLE_2019 FFI_EXTERN ffi_type ffi_type_complex_double;
+^
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/ffi/ffi.h:57:34: note: expanded from macro 'FFI_AVAILABLE_APPLE_2019'
+#define FFI_AVAILABLE_APPLE_2019 API_AVAILABLE(macos(10.15), macCatalyst(13.0)) API_UNAVAILABLE(ios, tvos, watchos)
+                                 ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/os/availability.h:61:160: note: expanded from macro 'API_AVAILABLE'
+    #define API_AVAILABLE(...) __API_AVAILABLE_GET_MACRO(__VA_ARGS__,__API_AVAILABLE7, __API_AVAILABLE6, __API_AVAILABLE5, __API_AVAILABLE4, __API_AVAILABLE3, __API_AVAILABLE2, __API_AVAILABLE1, 0)(__VA_ARGS__)
+                                                                                                                                                               ^
+In file included from conftest.c:3:
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/ffi/ffi.h:301:1: warning: unknown platform 'macCatalyst' in availability macro [-Wavailability]
+FFI_AVAILABLE_APPLE_2019 FFI_API
+^
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/ffi/ffi.h:57:34: note: expanded from macro 'FFI_AVAILABLE_APPLE_2019'
+#define FFI_AVAILABLE_APPLE_2019 API_AVAILABLE(macos(10.15), macCatalyst(13.0)) API_UNAVAILABLE(ios, tvos, watchos)
+                                 ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/os/availability.h:61:160: note: expanded from macro 'API_AVAILABLE'
+    #define API_AVAILABLE(...) __API_AVAILABLE_GET_MACRO(__VA_ARGS__,__API_AVAILABLE7, __API_AVAILABLE6, __API_AVAILABLE5, __API_AVAILABLE4, __API_AVAILABLE3, __API_AVAILABLE2, __API_AVAILABLE1, 0)(__VA_ARGS__)
+                                                                                                                                                               ^
+In file included from conftest.c:3:
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/ffi/ffi.h:307:1: warning: unknown platform 'macCatalyst' in availability macro [-Wavailability]
+FFI_AVAILABLE_APPLE_2019 FFI_API void ffi_ptrarray_to_raw (ffi_cif *cif, void **args, ffi_raw *raw);
+^
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/ffi/ffi.h:57:34: note: expanded from macro 'FFI_AVAILABLE_APPLE_2019'
+#define FFI_AVAILABLE_APPLE_2019 API_AVAILABLE(macos(10.15), macCatalyst(13.0)) API_UNAVAILABLE(ios, tvos, watchos)
+                                 ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/os/availability.h:61:160: note: expanded from macro 'API_AVAILABLE'
+    #define API_AVAILABLE(...) __API_AVAILABLE_GET_MACRO(__VA_ARGS__,__API_AVAILABLE7, __API_AVAILABLE6, __API_AVAILABLE5, __API_AVAILABLE4, __API_AVAILABLE3, __API_AVAILABLE2, __API_AVAILABLE1, 0)(__VA_ARGS__)
+                                                                                                                                                               ^
+In file included from conftest.c:3:
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/ffi/ffi.h:308:1: warning: unknown platform 'macCatalyst' in availability macro [-Wavailability]
+FFI_AVAILABLE_APPLE_2019 FFI_API void ffi_raw_to_ptrarray (ffi_cif *cif, ffi_raw *raw, void **args);
+^
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/ffi/ffi.h:57:34: note: expanded from macro 'FFI_AVAILABLE_APPLE_2019'
+#define FFI_AVAILABLE_APPLE_2019 API_AVAILABLE(macos(10.15), macCatalyst(13.0)) API_UNAVAILABLE(ios, tvos, watchos)
+                                 ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/os/availability.h:61:160: note: expanded from macro 'API_AVAILABLE'
+    #define API_AVAILABLE(...) __API_AVAILABLE_GET_MACRO(__VA_ARGS__,__API_AVAILABLE7, __API_AVAILABLE6, __API_AVAILABLE5, __API_AVAILABLE4, __API_AVAILABLE3, __API_AVAILABLE2, __API_AVAILABLE1, 0)(__VA_ARGS__)
+                                                                                                                                                               ^
+In file included from conftest.c:3:
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/ffi/ffi.h:309:1: warning: unknown platform 'macCatalyst' in availability macro [-Wavailability]
+FFI_AVAILABLE_APPLE_2019 FFI_API size_t ffi_raw_size (ffi_cif *cif);
+^
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/ffi/ffi.h:57:34: note: expanded from macro 'FFI_AVAILABLE_APPLE_2019'
+#define FFI_AVAILABLE_APPLE_2019 API_AVAILABLE(macos(10.15), macCatalyst(13.0)) API_UNAVAILABLE(ios, tvos, watchos)
+                                 ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/os/availability.h:61:160: note: expanded from macro 'API_AVAILABLE'
+    #define API_AVAILABLE(...) __API_AVAILABLE_GET_MACRO(__VA_ARGS__,__API_AVAILABLE7, __API_AVAILABLE6, __API_AVAILABLE5, __API_AVAILABLE4, __API_AVAILABLE3, __API_AVAILABLE2, __API_AVAILABLE1, 0)(__VA_ARGS__)
+                                                                                                                                                               ^
+In file included from conftest.c:3:
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/ffi/ffi.h:316:1: warning: unknown platform 'macCatalyst' in availability macro [-Wavailability]
+FFI_AVAILABLE_APPLE_2019_DEPRECATED_2020 FFI_API
+^
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/ffi/ffi.h:58:50: note: expanded from macro 'FFI_AVAILABLE_APPLE_2019_DEPRECATED_2020'
+#define FFI_AVAILABLE_APPLE_2019_DEPRECATED_2020 API_DEPRECATED("Deprecated", macos(10.15, 11.0), macCatalyst(13.0, 14.0)) API_UNAVAILABLE(ios, tvos, watchos)
+                                                 ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/os/availability.h:83:187: note: expanded from macro 'API_DEPRECATED'
+    #define API_DEPRECATED(...) __API_DEPRECATED_MSG_GET_MACRO(__VA_ARGS__,__API_DEPRECATED_MSG8,__API_DEPRECATED_MSG7, __API_DEPRECATED_MSG6,__API_DEPRECATED_MSG5,__API_DEPRECATED_MSG4,__API_DEPRECATED_MSG3,__API_DEPRECATED_MSG2,__API_DEPRECATED_MSG1, 0)(__VA_ARGS__)
+                                                                                                                                                                                          ^
+In file included from conftest.c:3:
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/ffi/ffi.h:323:1: warning: unknown platform 'macCatalyst' in availability macro [-Wavailability]
+FFI_AVAILABLE_APPLE_2019_DEPRECATED_2020 FFI_API
+^
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/ffi/ffi.h:58:50: note: expanded from macro 'FFI_AVAILABLE_APPLE_2019_DEPRECATED_2020'
+#define FFI_AVAILABLE_APPLE_2019_DEPRECATED_2020 API_DEPRECATED("Deprecated", macos(10.15, 11.0), macCatalyst(13.0, 14.0)) API_UNAVAILABLE(ios, tvos, watchos)
+                                                 ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/os/availability.h:83:187: note: expanded from macro 'API_DEPRECATED'
+    #define API_DEPRECATED(...) __API_DEPRECATED_MSG_GET_MACRO(__VA_ARGS__,__API_DEPRECATED_MSG8,__API_DEPRECATED_MSG7, __API_DEPRECATED_MSG6,__API_DEPRECATED_MSG5,__API_DEPRECATED_MSG4,__API_DEPRECATED_MSG3,__API_DEPRECATED_MSG2,__API_DEPRECATED_MSG1, 0)(__VA_ARGS__)
+                                                                                                                                                                                          ^
+In file included from conftest.c:3:
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/ffi/ffi.h:325:1: warning: unknown platform 'macCatalyst' in availability macro [-Wavailability]
+FFI_AVAILABLE_APPLE_2019_DEPRECATED_2020 FFI_API
+^
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/ffi/ffi.h:58:50: note: expanded from macro 'FFI_AVAILABLE_APPLE_2019_DEPRECATED_2020'
+#define FFI_AVAILABLE_APPLE_2019_DEPRECATED_2020 API_DEPRECATED("Deprecated", macos(10.15, 11.0), macCatalyst(13.0, 14.0)) API_UNAVAILABLE(ios, tvos, watchos)
+                                                 ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/os/availability.h:83:187: note: expanded from macro 'API_DEPRECATED'
+    #define API_DEPRECATED(...) __API_DEPRECATED_MSG_GET_MACRO(__VA_ARGS__,__API_DEPRECATED_MSG8,__API_DEPRECATED_MSG7, __API_DEPRECATED_MSG6,__API_DEPRECATED_MSG5,__API_DEPRECATED_MSG4,__API_DEPRECATED_MSG3,__API_DEPRECATED_MSG2,__API_DEPRECATED_MSG1, 0)(__VA_ARGS__)
+                                                                                                                                                                                          ^
+In file included from conftest.c:3:
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/ffi/ffi.h:327:1: warning: unknown platform 'macCatalyst' in availability macro [-Wavailability]
+FFI_AVAILABLE_APPLE_2019_DEPRECATED_2020 FFI_API
+^
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/ffi/ffi.h:58:50: note: expanded from macro 'FFI_AVAILABLE_APPLE_2019_DEPRECATED_2020'
+#define FFI_AVAILABLE_APPLE_2019_DEPRECATED_2020 API_DEPRECATED("Deprecated", macos(10.15, 11.0), macCatalyst(13.0, 14.0)) API_UNAVAILABLE(ios, tvos, watchos)
+                                                 ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/os/availability.h:83:187: note: expanded from macro 'API_DEPRECATED'
+    #define API_DEPRECATED(...) __API_DEPRECATED_MSG_GET_MACRO(__VA_ARGS__,__API_DEPRECATED_MSG8,__API_DEPRECATED_MSG7, __API_DEPRECATED_MSG6,__API_DEPRECATED_MSG5,__API_DEPRECATED_MSG4,__API_DEPRECATED_MSG3,__API_DEPRECATED_MSG2,__API_DEPRECATED_MSG1, 0)(__VA_ARGS__)
+                                                                                                                                                                                          ^
+In file included from conftest.c:3:
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/ffi/ffi.h:362:1: warning: unknown platform 'macCatalyst' in availability macro [-Wavailability]
+FFI_AVAILABLE_APPLE_2019 FFI_API void *ffi_closure_alloc (size_t size, void **code);
+^
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/ffi/ffi.h:57:34: note: expanded from macro 'FFI_AVAILABLE_APPLE_2019'
+#define FFI_AVAILABLE_APPLE_2019 API_AVAILABLE(macos(10.15), macCatalyst(13.0)) API_UNAVAILABLE(ios, tvos, watchos)
+                                 ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/os/availability.h:61:160: note: expanded from macro 'API_AVAILABLE'
+    #define API_AVAILABLE(...) __API_AVAILABLE_GET_MACRO(__VA_ARGS__,__API_AVAILABLE7, __API_AVAILABLE6, __API_AVAILABLE5, __API_AVAILABLE4, __API_AVAILABLE3, __API_AVAILABLE2, __API_AVAILABLE1, 0)(__VA_ARGS__)
+                                                                                                                                                               ^
+In file included from conftest.c:3:
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/ffi/ffi.h:363:1: warning: unknown platform 'macCatalyst' in availability macro [-Wavailability]
+FFI_AVAILABLE_APPLE_2019 FFI_API void ffi_closure_free (void *);
+^
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/ffi/ffi.h:57:34: note: expanded from macro 'FFI_AVAILABLE_APPLE_2019'
+#define FFI_AVAILABLE_APPLE_2019 API_AVAILABLE(macos(10.15), macCatalyst(13.0)) API_UNAVAILABLE(ios, tvos, watchos)
+                                 ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/os/availability.h:61:160: note: expanded from macro 'API_AVAILABLE'
+    #define API_AVAILABLE(...) __API_AVAILABLE_GET_MACRO(__VA_ARGS__,__API_AVAILABLE7, __API_AVAILABLE6, __API_AVAILABLE5, __API_AVAILABLE4, __API_AVAILABLE3, __API_AVAILABLE2, __API_AVAILABLE1, 0)(__VA_ARGS__)
+                                                                                                                                                               ^
+In file included from conftest.c:3:
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/ffi/ffi.h:387:1: warning: unknown platform 'macCatalyst' in availability macro [-Wavailability]
+FFI_AVAILABLE_APPLE_2019 FFI_API ffi_status
+^
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/ffi/ffi.h:57:34: note: expanded from macro 'FFI_AVAILABLE_APPLE_2019'
+#define FFI_AVAILABLE_APPLE_2019 API_AVAILABLE(macos(10.15), macCatalyst(13.0)) API_UNAVAILABLE(ios, tvos, watchos)
+                                 ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/os/availability.h:61:160: note: expanded from macro 'API_AVAILABLE'
+    #define API_AVAILABLE(...) __API_AVAILABLE_GET_MACRO(__VA_ARGS__,__API_AVAILABLE7, __API_AVAILABLE6, __API_AVAILABLE5, __API_AVAILABLE4, __API_AVAILABLE3, __API_AVAILABLE2, __API_AVAILABLE1, 0)(__VA_ARGS__)
+                                                                                                                                                               ^
+In file included from conftest.c:3:
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/ffi/ffi.h:395:1: warning: unknown platform 'macCatalyst' in availability macro [-Wavailability]
+FFI_AVAILABLE_APPLE_2019
+^
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/ffi/ffi.h:57:34: note: expanded from macro 'FFI_AVAILABLE_APPLE_2019'
+#define FFI_AVAILABLE_APPLE_2019 API_AVAILABLE(macos(10.15), macCatalyst(13.0)) API_UNAVAILABLE(ios, tvos, watchos)
+                                 ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/os/availability.h:61:160: note: expanded from macro 'API_AVAILABLE'
+    #define API_AVAILABLE(...) __API_AVAILABLE_GET_MACRO(__VA_ARGS__,__API_AVAILABLE7, __API_AVAILABLE6, __API_AVAILABLE5, __API_AVAILABLE4, __API_AVAILABLE3, __API_AVAILABLE2, __API_AVAILABLE1, 0)(__VA_ARGS__)
+                                                                                                                                                               ^
+In file included from conftest.c:3:
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/ffi/ffi.h:453:1: warning: unknown platform 'macCatalyst' in availability macro [-Wavailability]
+FFI_AVAILABLE_APPLE_2019 FFI_API ffi_status
+^
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/ffi/ffi.h:57:34: note: expanded from macro 'FFI_AVAILABLE_APPLE_2019'
+#define FFI_AVAILABLE_APPLE_2019 API_AVAILABLE(macos(10.15), macCatalyst(13.0)) API_UNAVAILABLE(ios, tvos, watchos)
+                                 ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/os/availability.h:61:160: note: expanded from macro 'API_AVAILABLE'
+    #define API_AVAILABLE(...) __API_AVAILABLE_GET_MACRO(__VA_ARGS__,__API_AVAILABLE7, __API_AVAILABLE6, __API_AVAILABLE5, __API_AVAILABLE4, __API_AVAILABLE3, __API_AVAILABLE2, __API_AVAILABLE1, 0)(__VA_ARGS__)
+                                                                                                                                                               ^
+In file included from conftest.c:3:
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/ffi/ffi.h:459:1: warning: unknown platform 'macCatalyst' in availability macro [-Wavailability]
+FFI_AVAILABLE_APPLE_2019 FFI_API ffi_status
+^
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/ffi/ffi.h:57:34: note: expanded from macro 'FFI_AVAILABLE_APPLE_2019'
+#define FFI_AVAILABLE_APPLE_2019 API_AVAILABLE(macos(10.15), macCatalyst(13.0)) API_UNAVAILABLE(ios, tvos, watchos)
+                                 ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/os/availability.h:61:160: note: expanded from macro 'API_AVAILABLE'
+    #define API_AVAILABLE(...) __API_AVAILABLE_GET_MACRO(__VA_ARGS__,__API_AVAILABLE7, __API_AVAILABLE6, __API_AVAILABLE5, __API_AVAILABLE4, __API_AVAILABLE3, __API_AVAILABLE2, __API_AVAILABLE1, 0)(__VA_ARGS__)
+                                                                                                                                                               ^
+In file included from conftest.c:3:
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/ffi/ffi.h:467:1: warning: unknown platform 'macCatalyst' in availability macro [-Wavailability]
+FFI_AVAILABLE_APPLE_2019_DEPRECATED_2020 FFI_API ffi_status
+^
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/ffi/ffi.h:58:50: note: expanded from macro 'FFI_AVAILABLE_APPLE_2019_DEPRECATED_2020'
+#define FFI_AVAILABLE_APPLE_2019_DEPRECATED_2020 API_DEPRECATED("Deprecated", macos(10.15, 11.0), macCatalyst(13.0, 14.0)) API_UNAVAILABLE(ios, tvos, watchos)
+                                                 ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/os/availability.h:83:187: note: expanded from macro 'API_DEPRECATED'
+    #define API_DEPRECATED(...) __API_DEPRECATED_MSG_GET_MACRO(__VA_ARGS__,__API_DEPRECATED_MSG8,__API_DEPRECATED_MSG7, __API_DEPRECATED_MSG6,__API_DEPRECATED_MSG5,__API_DEPRECATED_MSG4,__API_DEPRECATED_MSG3,__API_DEPRECATED_MSG2,__API_DEPRECATED_MSG1, 0)(__VA_ARGS__)
+                                                                                                                                                                                          ^
+In file included from conftest.c:3:
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/ffi/ffi.h:473:1: warning: unknown platform 'macCatalyst' in availability macro [-Wavailability]
+FFI_AVAILABLE_APPLE_2019_DEPRECATED_2020 FFI_API ffi_status
+^
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/ffi/ffi.h:58:50: note: expanded from macro 'FFI_AVAILABLE_APPLE_2019_DEPRECATED_2020'
+#define FFI_AVAILABLE_APPLE_2019_DEPRECATED_2020 API_DEPRECATED("Deprecated", macos(10.15, 11.0), macCatalyst(13.0, 14.0)) API_UNAVAILABLE(ios, tvos, watchos)
+                                                 ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/os/availability.h:83:187: note: expanded from macro 'API_DEPRECATED'
+    #define API_DEPRECATED(...) __API_DEPRECATED_MSG_GET_MACRO(__VA_ARGS__,__API_DEPRECATED_MSG8,__API_DEPRECATED_MSG7, __API_DEPRECATED_MSG6,__API_DEPRECATED_MSG5,__API_DEPRECATED_MSG4,__API_DEPRECATED_MSG3,__API_DEPRECATED_MSG2,__API_DEPRECATED_MSG1, 0)(__VA_ARGS__)
+                                                                                                                                                                                          ^
+In file included from conftest.c:3:
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/ffi/ffi.h:501:1: warning: unknown platform 'macCatalyst' in availability macro [-Wavailability]
+FFI_AVAILABLE_APPLE FFI_API
+^
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/ffi/ffi.h:56:34: note: expanded from macro 'FFI_AVAILABLE_APPLE'
+#define FFI_AVAILABLE_APPLE      API_AVAILABLE(macos(10.0), macCatalyst(13.0)) API_UNAVAILABLE(ios, tvos, watchos)
+                                 ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/os/availability.h:61:160: note: expanded from macro 'API_AVAILABLE'
+    #define API_AVAILABLE(...) __API_AVAILABLE_GET_MACRO(__VA_ARGS__,__API_AVAILABLE7, __API_AVAILABLE6, __API_AVAILABLE5, __API_AVAILABLE4, __API_AVAILABLE3, __API_AVAILABLE2, __API_AVAILABLE1, 0)(__VA_ARGS__)
+                                                                                                                                                               ^
+In file included from conftest.c:3:
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/ffi/ffi.h:508:1: warning: unknown platform 'macCatalyst' in availability macro [-Wavailability]
+FFI_AVAILABLE_APPLE_2019 FFI_API
+^
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/ffi/ffi.h:57:34: note: expanded from macro 'FFI_AVAILABLE_APPLE_2019'
+#define FFI_AVAILABLE_APPLE_2019 API_AVAILABLE(macos(10.15), macCatalyst(13.0)) API_UNAVAILABLE(ios, tvos, watchos)
+                                 ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/os/availability.h:61:160: note: expanded from macro 'API_AVAILABLE'
+    #define API_AVAILABLE(...) __API_AVAILABLE_GET_MACRO(__VA_ARGS__,__API_AVAILABLE7, __API_AVAILABLE6, __API_AVAILABLE5, __API_AVAILABLE4, __API_AVAILABLE3, __API_AVAILABLE2, __API_AVAILABLE1, 0)(__VA_ARGS__)
+                                                                                                                                                               ^
+In file included from conftest.c:3:
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/ffi/ffi.h:516:1: warning: unknown platform 'macCatalyst' in availability macro [-Wavailability]
+FFI_AVAILABLE_APPLE FFI_API
+^
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/ffi/ffi.h:56:34: note: expanded from macro 'FFI_AVAILABLE_APPLE'
+#define FFI_AVAILABLE_APPLE      API_AVAILABLE(macos(10.0), macCatalyst(13.0)) API_UNAVAILABLE(ios, tvos, watchos)
+                                 ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/os/availability.h:61:160: note: expanded from macro 'API_AVAILABLE'
+    #define API_AVAILABLE(...) __API_AVAILABLE_GET_MACRO(__VA_ARGS__,__API_AVAILABLE7, __API_AVAILABLE6, __API_AVAILABLE5, __API_AVAILABLE4, __API_AVAILABLE3, __API_AVAILABLE2, __API_AVAILABLE1, 0)(__VA_ARGS__)
+                                                                                                                                                               ^
+In file included from conftest.c:3:
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/ffi/ffi.h:522:1: warning: unknown platform 'macCatalyst' in availability macro [-Wavailability]
+FFI_AVAILABLE_APPLE_2019 FFI_API
+^
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/ffi/ffi.h:57:34: note: expanded from macro 'FFI_AVAILABLE_APPLE_2019'
+#define FFI_AVAILABLE_APPLE_2019 API_AVAILABLE(macos(10.15), macCatalyst(13.0)) API_UNAVAILABLE(ios, tvos, watchos)
+                                 ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/os/availability.h:61:160: note: expanded from macro 'API_AVAILABLE'
+    #define API_AVAILABLE(...) __API_AVAILABLE_GET_MACRO(__VA_ARGS__,__API_AVAILABLE7, __API_AVAILABLE6, __API_AVAILABLE5, __API_AVAILABLE4, __API_AVAILABLE3, __API_AVAILABLE2, __API_AVAILABLE1, 0)(__VA_ARGS__)
+                                                                                                                                                               ^
+34 warnings generated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <ffi.h>
+ 4: 
+ 5: /*top*/
+ 6: extern int t(void);
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     int (* volatile tp)(void)=(int (*)(void))&t;
+11:     printf("%d", (*tp)());
+12:   }
+13: 
+14:   return !!argv[argc];
+15: }
+16: int t(void) { void ((*volatile p)()); p = (void ((*)()))ffi_prep_closure_loc; return !p; }
+/* end */
+
+--------------------
+
+have_func: checking for ffi_prep_cif_var()... -------------------- yes
+
+"clang -fdeclspec -o conftest -I/Users/mikiminach/.rbenv/versions/3.0.0/include/ruby-3.0.0/arm64-darwin22 -I/Users/mikiminach/.rbenv/versions/3.0.0/include/ruby-3.0.0/ruby/backward -I/Users/mikiminach/.rbenv/versions/3.0.0/include/ruby-3.0.0 -I. -I/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/ffi -I/Users/mikiminach/.rbenv/versions/3.0.0/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wmissing-noreturn -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens -fno-common -pipe  conftest.c  -L. -L/Users/mikiminach/.rbenv/versions/3.0.0/lib -L. -L/Users/mikiminach/.rbenv/versions/3.0.0/lib  -fstack-protector-strong -L/opt/homebrew/Cellar/llvm@12/12.0.1_1/lib/clang/12.0.1/lib   -m64  -lffi  -lffi -lruby.3.0 -lffi  -lffi  "
+conftest.c:14:57: error: use of undeclared identifier 'ffi_prep_cif_var'
+int t(void) { void ((*volatile p)()); p = (void ((*)()))ffi_prep_cif_var; return !p; }
+                                                        ^
+1 error generated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     int (* volatile tp)(void)=(int (*)(void))&t;
+ 9:     printf("%d", (*tp)());
+10:   }
+11: 
+12:   return !!argv[argc];
+13: }
+14: int t(void) { void ((*volatile p)()); p = (void ((*)()))ffi_prep_cif_var; return !p; }
+/* end */
+
+"clang -fdeclspec -o conftest -I/Users/mikiminach/.rbenv/versions/3.0.0/include/ruby-3.0.0/arm64-darwin22 -I/Users/mikiminach/.rbenv/versions/3.0.0/include/ruby-3.0.0/ruby/backward -I/Users/mikiminach/.rbenv/versions/3.0.0/include/ruby-3.0.0 -I. -I/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/ffi -I/Users/mikiminach/.rbenv/versions/3.0.0/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wmissing-noreturn -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens -fno-common -pipe  conftest.c  -L. -L/Users/mikiminach/.rbenv/versions/3.0.0/lib -L. -L/Users/mikiminach/.rbenv/versions/3.0.0/lib  -fstack-protector-strong -L/opt/homebrew/Cellar/llvm@12/12.0.1_1/lib/clang/12.0.1/lib   -m64  -lffi  -lffi -lruby.3.0 -lffi  -lffi  "
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     int (* volatile tp)(void)=(int (*)(void))&t;
+ 9:     printf("%d", (*tp)());
+10:   }
+11: 
+12:   return !!argv[argc];
+13: }
+14: extern void ffi_prep_cif_var();
+15: int t(void) { ffi_prep_cif_var(); return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for ffi_raw_call()... -------------------- yes
+
+"clang -fdeclspec -o conftest -I/Users/mikiminach/.rbenv/versions/3.0.0/include/ruby-3.0.0/arm64-darwin22 -I/Users/mikiminach/.rbenv/versions/3.0.0/include/ruby-3.0.0/ruby/backward -I/Users/mikiminach/.rbenv/versions/3.0.0/include/ruby-3.0.0 -I. -I/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/ffi -I/Users/mikiminach/.rbenv/versions/3.0.0/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wmissing-noreturn -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens -fno-common -pipe  conftest.c  -L. -L/Users/mikiminach/.rbenv/versions/3.0.0/lib -L. -L/Users/mikiminach/.rbenv/versions/3.0.0/lib  -fstack-protector-strong -L/opt/homebrew/Cellar/llvm@12/12.0.1_1/lib/clang/12.0.1/lib   -m64  -lffi  -lffi -lruby.3.0 -lffi  -lffi  "
+conftest.c:14:57: error: use of undeclared identifier 'ffi_raw_call'
+int t(void) { void ((*volatile p)()); p = (void ((*)()))ffi_raw_call; return !p; }
+                                                        ^
+1 error generated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     int (* volatile tp)(void)=(int (*)(void))&t;
+ 9:     printf("%d", (*tp)());
+10:   }
+11: 
+12:   return !!argv[argc];
+13: }
+14: int t(void) { void ((*volatile p)()); p = (void ((*)()))ffi_raw_call; return !p; }
+/* end */
+
+"clang -fdeclspec -o conftest -I/Users/mikiminach/.rbenv/versions/3.0.0/include/ruby-3.0.0/arm64-darwin22 -I/Users/mikiminach/.rbenv/versions/3.0.0/include/ruby-3.0.0/ruby/backward -I/Users/mikiminach/.rbenv/versions/3.0.0/include/ruby-3.0.0 -I. -I/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/ffi -I/Users/mikiminach/.rbenv/versions/3.0.0/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wmissing-noreturn -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens -fno-common -pipe  conftest.c  -L. -L/Users/mikiminach/.rbenv/versions/3.0.0/lib -L. -L/Users/mikiminach/.rbenv/versions/3.0.0/lib  -fstack-protector-strong -L/opt/homebrew/Cellar/llvm@12/12.0.1_1/lib/clang/12.0.1/lib   -m64  -lffi  -lffi -lruby.3.0 -lffi  -lffi  "
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     int (* volatile tp)(void)=(int (*)(void))&t;
+ 9:     printf("%d", (*tp)());
+10:   }
+11: 
+12:   return !!argv[argc];
+13: }
+14: extern void ffi_raw_call();
+15: int t(void) { ffi_raw_call(); return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for ffi_prep_raw_closure()... -------------------- yes
+
+"clang -fdeclspec -o conftest -I/Users/mikiminach/.rbenv/versions/3.0.0/include/ruby-3.0.0/arm64-darwin22 -I/Users/mikiminach/.rbenv/versions/3.0.0/include/ruby-3.0.0/ruby/backward -I/Users/mikiminach/.rbenv/versions/3.0.0/include/ruby-3.0.0 -I. -I/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/ffi -I/Users/mikiminach/.rbenv/versions/3.0.0/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wmissing-noreturn -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens -fno-common -pipe  conftest.c  -L. -L/Users/mikiminach/.rbenv/versions/3.0.0/lib -L. -L/Users/mikiminach/.rbenv/versions/3.0.0/lib  -fstack-protector-strong -L/opt/homebrew/Cellar/llvm@12/12.0.1_1/lib/clang/12.0.1/lib   -m64  -lffi  -lffi -lruby.3.0 -lffi  -lffi  "
+conftest.c:14:57: error: use of undeclared identifier 'ffi_prep_raw_closure'
+int t(void) { void ((*volatile p)()); p = (void ((*)()))ffi_prep_raw_closure; return !p; }
+                                                        ^
+1 error generated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     int (* volatile tp)(void)=(int (*)(void))&t;
+ 9:     printf("%d", (*tp)());
+10:   }
+11: 
+12:   return !!argv[argc];
+13: }
+14: int t(void) { void ((*volatile p)()); p = (void ((*)()))ffi_prep_raw_closure; return !p; }
+/* end */
+
+"clang -fdeclspec -o conftest -I/Users/mikiminach/.rbenv/versions/3.0.0/include/ruby-3.0.0/arm64-darwin22 -I/Users/mikiminach/.rbenv/versions/3.0.0/include/ruby-3.0.0/ruby/backward -I/Users/mikiminach/.rbenv/versions/3.0.0/include/ruby-3.0.0 -I. -I/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/ffi -I/Users/mikiminach/.rbenv/versions/3.0.0/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wmissing-noreturn -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens -fno-common -pipe  conftest.c  -L. -L/Users/mikiminach/.rbenv/versions/3.0.0/lib -L. -L/Users/mikiminach/.rbenv/versions/3.0.0/lib  -fstack-protector-strong -L/opt/homebrew/Cellar/llvm@12/12.0.1_1/lib/clang/12.0.1/lib   -m64  -lffi  -lffi -lruby.3.0 -lffi  -lffi  "
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     int (* volatile tp)(void)=(int (*)(void))&t;
+ 9:     printf("%d", (*tp)());
+10:   }
+11: 
+12:   return !!argv[argc];
+13: }
+14: extern void ffi_prep_raw_closure();
+15: int t(void) { ffi_prep_raw_closure(); return 0; }
+/* end */
+
+--------------------
+
+block in append_ldflags: checking for whether -pthread is accepted as LDFLAGS... -------------------- yes
+
+"clang -fdeclspec -o conftest -I/Users/mikiminach/.rbenv/versions/3.0.0/include/ruby-3.0.0/arm64-darwin22 -I/Users/mikiminach/.rbenv/versions/3.0.0/include/ruby-3.0.0/ruby/backward -I/Users/mikiminach/.rbenv/versions/3.0.0/include/ruby-3.0.0 -I. -I/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include/ffi -I/Users/mikiminach/.rbenv/versions/3.0.0/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wmissing-noreturn -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens -fno-common -pipe  conftest.c  -L. -L/Users/mikiminach/.rbenv/versions/3.0.0/lib -L. -L/Users/mikiminach/.rbenv/versions/3.0.0/lib  -fstack-protector-strong -L/opt/homebrew/Cellar/llvm@12/12.0.1_1/lib/clang/12.0.1/lib   -m64  -lffi  -lffi -lruby.3.0 -pthread  "
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main(int argc, char **argv)
+4: {
+5:   return !!argv[argc];
+6: }
+/* end */
+
+--------------------
+
+extconf.h is:
+/* begin */
+1: #ifndef EXTCONF_H
+2: #define EXTCONF_H
+3: #define HAVE_FFI_PREP_CIF_VAR 1
+4: #define HAVE_FFI_RAW_CALL 1
+5: #define HAVE_FFI_PREP_RAW_CLOSURE 1
+6: #define HAVE_RAW_API 1
+7: #define USE_FFI_ALLOC 1
+8: #endif
+/* end */
+
