@@ -16,6 +16,7 @@ On your Clever Cloud application you must specify some environment variables as 
   - "2" will select the greatest "2.X.Y" version available;
   - "2.3" will select the greatest "2.0.Y" version available;
   - "2.3.1-p112" will select the "2.3.1-p112" version.
+  - ℹ️ This repository is [currently deployed](https://ruby.cleverapps.io/) by setting `RUBY_VERSION` = `2.6`, higher versions might not work until dependencies are updated.
 - `SECRET_KEY_BASE` with a value that can be generate using `rake secret`.
 
 This application is provided to work with Postgresql, you have to define the next variables, or link your application with Postgresql addon on Clever.
