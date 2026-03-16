@@ -1,45 +1,141 @@
-# RubyOnRails as RESTful Demo for Clever-Cloud
+# Ruby on Rails PostgreSQL Example Application on Clever Cloud
 
-## Description
+[![Clever Cloud - PaaS](https://img.shields.io/badge/Clever%20Cloud-PaaS-orange)](https://clever-cloud.com)
 
-This application is a fork from [official getting started](http://guides.rubyonrails.org/getting_started.html) which contains the configuration for Clever Cloud ruby application.
+This is a minimal Ruby on Rails application that demonstrates how to deploy a RESTful blog with PostgreSQL on Clever Cloud.
 
-This application is a RESTful app which is using PostgreSQL addon.
+## About the Application
 
-## Configuration
+This application is a simple blog engine based on the [Rails Getting Started guide](https://guides.rubyonrails.org/getting_started.html). It provides:
 
-### Environment variables
+- `/` - Welcome page
+- `/articles` - CRUD for articles (create, read, update, delete)
+- `/articles/:id/comments` - Nested comments on articles
 
-On your Clever Cloud application you must specify some environment variables as following:
+Write operations are protected by HTTP Basic Authentication (username: `admin`, password: `admin`).
 
-- `RUBY_VERSION` with one of the next values:
-  - "2" will select the greatest "2.X.Y" version available;
-  - "2.3" will select the greatest "2.0.Y" version available;
-  - "2.3.1-p112" will select the "2.3.1-p112" version.
-  - ℹ️ This repository is [currently deployed](https://ruby.cleverapps.io/) by setting `RUBY_VERSION` = `2.6`, higher versions might not work until dependencies are updated.
-- `SECRET_KEY_BASE` with a value that can be generate using `rake secret`.
+## Technology Stack
 
-#### Generating a `SECRET_KEY_BASE`
+- [Ruby on Rails](https://rubyonrails.org) 8.0 - Full-stack web framework
+- [PostgreSQL](https://www.postgresql.org) - Relational database
+- [Puma](https://puma.io) 6+ - A fast, concurrent web server for Ruby
+- [Propshaft](https://github.com/rails/propshaft) - Asset pipeline for Rails
+- [Turbo](https://turbo.hotwired.dev) - SPA-like page navigation
+- Ruby 3.3+
 
-Depending on your machine, you'll need to run this commands to generate a `SECRET_KEY_BASE`:
+## Prerequisites
 
-- `bundle update`
-- `bundle install`
-- `bundle exec rake secret`
+- Ruby 3.3+
+- Bundler
+- PostgreSQL
 
-#### Database connection
+## Running the Application Locally
 
-This application is provided to work with Postgresql, you have to define the next variables, or link your application with Postgresql addon on Clever.
+```bash
+bundle install
+bin/rails db:prepare
+bin/rails server
+```
 
-- `POSTGRESQL_ADDON_DB`
-- `POSTGRESQL_ADDON_HOST`
-- `POSTGRESQL_ADDON_USER`
-- `POSTGRESQL_ADDON_PASSWORD`
-- `POSTGRESQL_ADDON_PORT`
+The application will be accessible at http://localhost:3000.
 
-### Clever Cloud
+## Deploying on Clever Cloud
 
-To work, your application must contains the file `clevercloud/ruby.json` which contains:
+You have two options to deploy your Rails application on Clever Cloud: using the Web Console or using the Clever Tools CLI.
+
+### Option 1: Deploy using the Web Console
+
+#### 1. Create an account on Clever Cloud
+
+If you don't already have an account, go to the [Clever Cloud console](https://console.clever-cloud.com/) and follow the registration instructions.
+
+#### 2. Set up your application on Clever Cloud
+
+1. Log in to the [Clever Cloud console](https://console.clever-cloud.com/)
+2. Click on "Create" and select "An application"
+3. Choose "Ruby" as the runtime environment
+4. Configure your application settings (name, region, etc.)
+
+#### 3. Add a PostgreSQL add-on
+
+1. In your application settings, go to "Service dependencies"
+2. Click "Link add-ons to this application"
+3. Select "PostgreSQL" and choose a plan
+4. The database connection environment variables (`POSTGRESQL_ADDON_*`) will be set automatically
+
+#### 4. Configure Environment Variables
+
+Add the following environment variables in the Clever Cloud console:
+
+| Variable | Value | Description |
+|----------|-------|-------------|
+| `CC_RACKUP_SERVER` | `puma` | Rack server to use |
+| `SECRET_KEY_BASE` | *(generate one)* | Rails secret key for encrypted sessions |
+
+> **Note:** Generate a `SECRET_KEY_BASE` by running `bin/rails secret` locally.
+
+#### 5. Deploy Your Application
+
+You can deploy your application using Git:
+
+```bash
+# Add Clever Cloud as a remote repository
+git remote add clever git+ssh://git@push-par-clevercloud-customers.services.clever-cloud.com/app_<your-app-id>.git
+
+# Push your code to deploy
+git push clever master
+```
+
+### Option 2: Deploy using Clever Tools CLI
+
+#### 1. Install Clever Tools
+
+Install the Clever Tools CLI following the [official documentation](https://www.clever-cloud.com/doc/clever-tools/getting_started/):
+
+```bash
+# Using npm
+npm install -g clever-tools
+
+# Or using Homebrew (macOS)
+brew install clever-tools
+```
+
+#### 2. Log in to your Clever Cloud account
+
+```bash
+clever login
+```
+
+#### 3. Create a new application
+
+```bash
+# Step 1: Initialize the current directory as a Clever Cloud application
+clever create --type ruby <YOUR_APP_NAME>
+
+# Step 2: Link a PostgreSQL add-on
+clever addon create postgresql-addon <YOUR_ADDON_NAME> --link <YOUR_APP_NAME>
+
+# Step 3: Set the required environment variables
+clever env set CC_RACKUP_SERVER puma
+clever env set SECRET_KEY_BASE $(bin/rails secret)
+
+# Step 4: Add your domain (optional but recommended)
+clever domain add <YOUR_DOMAIN_NAME>
+```
+
+#### 4. Deploy your application
+
+```bash
+clever deploy
+```
+
+#### 5. Open your application in a browser
+
+Once deployed, you can access your application at `https://<YOUR_DOMAIN_NAME>/`.
+
+### Clever Cloud Configuration
+
+The `clevercloud/ruby.json` file configures deployment tasks:
 
 ```json
 {
@@ -52,32 +148,18 @@ To work, your application must contains the file `clevercloud/ruby.json` which c
 }
 ```
 
-Create your data schema, relations and enable rails assets pipeline.
+This ensures database migrations and asset precompilation run automatically on each deploy.
 
-## Application
+### Monitoring Your Application
 
-This REST API provides a design to definie new content on website, there is an **HTTP Basic Authentication** with username: `admin` and password: `admin`.
+Once deployed, you can monitor your application through:
 
-These are the routes available.
+- **Web Console**: The Clever Cloud console provides logs, metrics, and other tools to help you manage your application.
+- **CLI**: Use `clever logs` to view application logs and `clever status` to check the status of your application.
 
-```
-              Prefix Verb   URI Pattern                                       Controller#Action
-       welcome_index GET    /welcome/index(.:format)                          welcome#index
-    article_comments GET    /articles/:article_id/comments(.:format)          comments#index
-                     POST   /articles/:article_id/comments(.:format)          comments#create
- new_article_comment GET    /articles/:article_id/comments/new(.:format)      comments#new
-edit_article_comment GET    /articles/:article_id/comments/:id/edit(.:format) comments#edit
-     article_comment GET    /articles/:article_id/comments/:id(.:format)      comments#show
-                     PATCH  /articles/:article_id/comments/:id(.:format)      comments#update
-                     PUT    /articles/:article_id/comments/:id(.:format)      comments#update
-                     DELETE /articles/:article_id/comments/:id(.:format)      comments#destroy
-            articles GET    /articles(.:format)                               articles#index
-                     POST   /articles(.:format)                               articles#create
-         new_article GET    /articles/new(.:format)                           articles#new
-        edit_article GET    /articles/:id/edit(.:format)                      articles#edit
-             article GET    /articles/:id(.:format)                           articles#show
-                     PATCH  /articles/:id(.:format)                           articles#update
-                     PUT    /articles/:id(.:format)                           articles#update
-                     DELETE /articles/:id(.:format)                           articles#destroy
-                root GET    /                                                 welcome#index
-```
+## Additional Resources
+
+- [Ruby on Rails Guides](https://guides.rubyonrails.org)
+- [Puma Documentation](https://puma.io)
+- [Clever Cloud Ruby Documentation](https://www.clever-cloud.com/developers/doc/applications/ruby/)
+- [Clever Cloud PostgreSQL Documentation](https://www.clever-cloud.com/developers/doc/addons/postgresql/)

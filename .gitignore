@@ -1,0 +1,26 @@
+# Bundler
+/.bundle
+/vendor/bundle
+
+# Environment
+/.env*
+
+# Logs
+/log/*
+!/log/.keep
+
+# Temp files
+/tmp/*
+!/tmp/.keep
+
+# Storage
+/storage/*
+!/storage/.keep
+
+# Public uploads and assets
+/public/assets
+
+# Master key for credentials
+/config/master.key
+
+.clever.json
